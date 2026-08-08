@@ -61,6 +61,19 @@ people to pad prompts, which is the opposite of the goal.
 Every "not needed here" carries a one-line reason. If a reason cannot be
 given, the piece is missing.
 
+**A piece that is present but too vague to constrain anything counts as
+missing.** "Build a website" gestures at an Action without saying how far to
+take it, and "for my gym" gestures at a Goal without naming an outcome. When
+marking one of these missing, quote the words they used and say what would
+make it count:
+
+```
+Goal:    missing. "for my gym" names who it's for, not what you want
+         to happen. What should a visitor do?
+```
+
+This is the difference between the skill teaching and the skill scolding.
+
 ## Report by level, never as a raw score
 
 ```

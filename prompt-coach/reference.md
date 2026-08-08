@@ -7,9 +7,9 @@ The weak prompt used throughout:
 
 > build a website for my gym
 
-It has a Goal and an Action and nothing else, so the agent has to guess the
-audience, the pages, the stack, the tone, and what "done" means. Every wrong
-guess costs a correction round.
+It gestures at a Goal and an Action without either one constraining anything,
+so the agent has to guess the audience, the pages, the stack, the tone, and
+what "done" means. Every wrong guess costs a correction round.
 
 ---
 
