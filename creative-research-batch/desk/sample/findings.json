@@ -1,0 +1,23 @@
+{
+  "headline": "The breakout clip in this batch has no spoken words.",
+  "headline_detail": "It is an 18-second silent scroll through TikTok Shop skincare finds with prices on screen the entire time. Half a million views against a few thousand followers. A transcript-only pipeline would have missed it completely.",
+  "second": "Reach and relevance barely overlap in this niche: the batch that is useful for ads mixes one pure viral visual with high-relevance UGC hooks and ingredient explainers. Only a few clips score well on both.",
+  "patterns": [
+    {
+      "title": "Show the price, say nothing",
+      "desc": "Silent Shop scroll with prices legible end to end. No script, no edit polish, and it beat every talking head in raw reach."
+    },
+    {
+      "title": "Problem-first product gate",
+      "desc": "\"Stop buying X if Y\" as the open. Filters the right buyer before the product appears. Strong for DTC skincare ads."
+    },
+    {
+      "title": "Same-frame before and after",
+      "desc": "Identical lighting and camera across weeks. Proof over claims. Works for retinol, acne, barrier repair."
+    },
+    {
+      "title": "Hook library, not product pitch",
+      "desc": "Creators teaching opening lines and UGC templates. Use the structure for your own Shop ads. That is the angle-research payoff."
+    }
+  ]
+}

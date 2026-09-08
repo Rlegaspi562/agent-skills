@@ -6,6 +6,7 @@ you want, ignore the rest.
 | Skill | What it does |
 |---|---|
 | [`prompt-coach/`](prompt-coach/) | Checks your request against the eight pieces of a complete prompt, then offers to fill the gaps before answering |
+| [`creative-research-batch/`](creative-research-batch/) | Runs a recurring TikTok creative research batch for one niche: Apify scrape, two-score ranking, Apify watches the top five, then a formatted brief and four-tab workbook in Drive plus a local review desk |
 
 ## Install
 
@@ -20,13 +21,13 @@ git clone https://github.com/Rlegaspi562/agent-skills
 macOS or Linux:
 
 ```bash
-mkdir -p ~/.claude/skills && cp -R agent-skills/prompt-coach ~/.claude/skills/
+mkdir -p ~/.claude/skills && cp -R agent-skills/prompt-coach agent-skills/creative-research-batch ~/.claude/skills/
 ```
 
 Windows PowerShell:
 
 ```powershell
-New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null; Copy-Item -Recurse -Force .\agent-skills\prompt-coach "$HOME\.claude\skills\"
+New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null; Copy-Item -Recurse -Force .\agent-skills\prompt-coach, .\agent-skills\creative-research-batch "$HOME\.claude\skills\"
 ```
 
 ### Codex
@@ -35,7 +36,7 @@ Same commands, replacing `.claude/skills` with `.codex/skills`.
 
 ### Any other agent
 
-The skills are plain Markdown. Paste `prompt-coach/SKILL.md` into your
+The skills are plain Markdown. Paste the skill's `SKILL.md` into your
 system prompt, project instructions, or custom-instructions box.
 
 ## prompt-coach
@@ -82,3 +83,18 @@ later. There is no perfect prompt, but there is a formula, and knowing the
 pieces means you stop being the bottleneck.
 
 MIT licensed. Built by [Rumil Legaspi](https://github.com/Rlegaspi562).
+
+## creative-research-batch
+
+Say `/creative-research-batch` once Apify and Google Drive are connected.
+
+It scrapes your niche's hashtags, ranks every video twice (once for reach,
+once for relevance to what you sell), picks three Viral and two Targeted,
+has Apify watch all five and describe them scene by scene, then writes a
+formatted strategy brief and a four-tab research workbook into a dated Drive
+folder and builds a local desk page showing the whole shortlist with scores.
+About a dollar in Apify per batch.
+
+Ships configured for DTC skincare on TikTok Shop; the niche is one block at
+the top of the skill. Setup for Cowork, Claude Code, and other agents is in
+[`creative-research-batch/README.md`](creative-research-batch/README.md).

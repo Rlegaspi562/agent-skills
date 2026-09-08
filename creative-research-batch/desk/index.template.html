@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{DESK_TITLE}}</title>
+<style>
+  :root{
+    color-scheme: light;
+    --paper: #f1eee7; --paper-soft: #e7e2d8; --card: #f7f5f0;
+    --ink: #20242b; --muted: #686b6d;
+    --line: rgba(32,36,43,.2); --line-soft: rgba(32,36,43,.1);
+    --accent: #536b78; --accent-soft: #c8d1d2;
+    --display: Georgia, "Times New Roman", serif;
+    --sans: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, Consolas, "SF Mono", monospace;
+    --good: #3f6b4a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper); color:var(--ink); font:15px/1.55 var(--sans);
+    min-height:100vh;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:44px 28px 90px}
+  header{margin-bottom:34px}
+  .eyebrow{
+    font:11px/1 var(--mono); text-transform:uppercase; letter-spacing:.08em;
+    color:var(--accent); margin-bottom:10px;
+  }
+  h1{
+    font-family:var(--display); font-weight:400; letter-spacing:-.01em;
+    font-size:34px; margin:0 0 10px;
+  }
+  .lede{color:var(--muted); font-size:15.5px; max-width:640px; margin:0}
+  .panel{
+    border:1px solid var(--line); border-radius:10px; background:var(--card);
+    padding:24px 26px; margin-bottom:26px;
+  }
+  .panel h2{
+    font-family:var(--display); font-weight:400; font-size:19px; margin:0 0 4px;
+  }
+  .panel .sub{color:var(--muted); font-size:13px; margin:0 0 20px}
+  .cfg-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:28px}
+  @media (max-width:760px){ .cfg-grid{grid-template-columns:1fr} }
+  .field{margin-bottom:18px}
+  .field:last-child{margin-bottom:0}
+  .field label{
+    display:block; font:11px var(--mono); text-transform:uppercase;
+    letter-spacing:.06em; color:var(--muted); margin-bottom:8px;
+  }
+  .chips{display:flex; flex-wrap:wrap; gap:7px}
+  .chip{
+    border:1px solid var(--line); border-radius:99px; padding:5px 12px;
+    font-size:12.5px; color:var(--ink); background:var(--paper);
+  }
+  .chip button{
+    appearance:none; background:none; border:0; color:var(--muted);
+    margin-left:6px; cursor:pointer; font-size:12px; padding:0;
+  }
+  .chip button:hover{color:var(--ink)}
+  .chip-add{
+    border:1px dashed var(--line); border-radius:99px; padding:5px 12px;
+    font-size:12.5px; background:none; color:var(--muted); cursor:pointer;
+  }
+  .chip-add:hover{color:var(--ink); border-color:var(--ink)}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  select, input[type="text"]{
+    width:100%; font:inherit; font-size:13.5px; color:var(--ink);
+    background:var(--paper); border:1px solid var(--line); border-radius:7px;
+    padding:8px 10px;
+  }
+  input[type="range"]{width:100%; accent-color:var(--accent)}
+  .range-val{
+    display:flex; justify-content:space-between; font:12px var(--mono);
+    color:var(--muted); margin-top:4px;
+  }
+  .range-val b{color:var(--ink); font-weight:600}
+  .next-run{
+    font-size:13px; color:var(--muted); border-top:1px solid var(--line-soft);
+    padding-top:14px; margin-top:4px;
+  }
+  .next-run b{color:var(--ink)}
+  .run-row{display:flex; align-items:center; gap:14px; margin-top:22px}
+  #runBtn{
+    appearance:none; border:1px solid var(--ink); background:var(--ink);
+    color:var(--paper); font:600 13.5px var(--sans); letter-spacing:.01em;
+    padding:11px 22px; border-radius:7px; cursor:pointer;
+  }
+  #runBtn:hover{background:#3a3f49}
+  #runBtn:disabled{opacity:.55; cursor:default}
+  .run-hint{font-size:12.5px; color:var(--muted)}
+  .log{
+    display:none; font:12.5px/1.7 var(--mono); color:var(--muted);
+    border:1px solid var(--line-soft); border-radius:8px; padding:14px 16px;
+    margin-top:18px; background:var(--paper);
+  }
+  .log.show{display:block}
+  .log .ln{opacity:0; transform:translateY(2px); transition:opacity .25s, transform .25s}
+  .log .ln.on{opacity:1; transform:none}
+  .log .ln .ok{color:var(--good)}
+  .results{display:none}
+  .results.show{display:block}
+  .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin-bottom:26px}
+  @media (max-width:700px){ .kpis{grid-template-columns:repeat(2,1fr)} }
+  .kpi{background:var(--card); padding:18px 18px}
+  .kpi .n{font-family:var(--display); font-size:26px}
+  .kpi .l{font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-top:4px}
+  .cards{display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden}
+  .vcard{background:var(--card); padding:16px 20px; display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start}
+  @media (max-width:640px){ .vcard{grid-template-columns:1fr} }
+  .vcard.picked{background:#eef1ea}
+  .score{
+    font-family:var(--display); font-size:24px; width:56px; text-align:center;
+    padding-top:2px;
+  }
+  .vc-main .head{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:4px}
+  .vc-main a.handle{color:var(--ink); font-weight:600; text-decoration:none; font-size:14.5px}
+  .vc-main a.handle:hover{color:var(--accent)}
+  .badge{
+    font:10px var(--mono); text-transform:uppercase; letter-spacing:.05em;
+    border:1px solid var(--line); border-radius:4px; padding:1px 6px; color:var(--muted);
+  }
+  .badge.picked{border-color:var(--good); color:var(--good)}
+  .cap{color:var(--ink); font-size:13.5px; margin:4px 0 6px; line-height:1.5}
+  .why{font-size:12px; color:var(--muted)}
+  .stats{
+    font:11.5px var(--mono); color:var(--muted); text-align:right;
+    display:flex; flex-direction:column; gap:2px; white-space:nowrap;
+  }
+  .stats b{color:var(--ink)}
+  .synthesis{margin-top:26px}
+  .synthesis h2{font-family:var(--display); font-weight:400; font-size:20px; margin:0 0 14px}
+  .finding{
+    border-left:2px solid var(--accent); padding-left:16px; margin-bottom:20px;
+  }
+  .finding p{margin:0 0 8px; font-size:14.5px}
+  .finding .tag{font:11px var(--mono); text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:6px; display:block}
+  .patterns{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  @media (max-width:700px){ .patterns{grid-template-columns:1fr} }
+  .pattern{border:1px solid var(--line); border-radius:8px; padding:14px 16px; background:var(--card)}
+  .pattern .t{font-weight:600; font-size:13.5px; margin-bottom:5px}
+  .pattern .d{font-size:13px; color:var(--muted); line-height:1.5}
+  footer{margin-top:40px; font-size:12px; color:var(--muted); border-top:1px solid var(--line-soft); padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Creator research automation</div>
+    <h1>Creative Research Desk</h1>
+    <p class="lede">{{DESK_LEDE}}</p>
+  </header>
+
+  <section class="panel">
+    <h2>Configure this batch</h2>
+    <p class="sub">Adjust the batch, then press run. Nothing here calls out anywhere: the batch below is a completed run, replayed from a finished batch.</p>
+
+    <div class="cfg-grid">
+      <div>
+        <div class="field">
+          <label>Tracked tags</label>
+          <div class="chips" id="chips"></div>
+        </div>
+        <div class="field">
+          <label>Batch size &middot; <span id="batchSizeVal">5</span> videos</label>
+          <input type="range" id="batchSize" min="3" max="8" value="5" step="1">
+        </div>
+        <div class="field">
+          <label>Reach vs. relevance weighting</label>
+          <input type="range" id="weight" min="0" max="100" value="50" step="5">
+          <div class="range-val"><span>Relevance-led</span><b id="weightVal">Balanced (50 / 50)</b><span>Reach-led</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="row2">
+          <div class="field">
+            <label>Cadence</label>
+            <select id="cadence">
+              <option value="7">Weekly</option>
+              <option value="14" selected>Biweekly</option>
+              <option value="30">Monthly</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Run day</label>
+            <select id="runDay">
+              <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+              <option selected>Thursday</option><option>Friday</option>
+              <option>Saturday</option><option>Sunday</option>
+            </select>
+          </div>
+        </div>
+        <div class="next-run">Next scheduled run: <b id="nextRun"></b></div>
+      </div>
+    </div>
+
+    <div class="run-row">
+      <button id="runBtn" type="button">Run this batch now</button>
+      <span class="run-hint" id="runHint">About 4 seconds, scoring 210 scanned posts down to a shortlist.</span>
+    </div>
+
+    <div class="log" id="log">
+      <div class="ln" data-t="0">Scanning tagged posts across 12 hashtags…</div>
+      <div class="ln" data-t="700">Snapshotting candidates <span class="ok">210 found</span>, hashed and stored…</div>
+      <div class="ln" data-t="1500">Scoring reach and niche relevance for each candidate…</div>
+      <div class="ln" data-t="2300">Shortlisting to the top 20 for review…</div>
+      <div class="ln" data-t="3000">Ranking this batch at the current weighting…</div>
+      <div class="ln" data-t="3600"><span class="ok">Batch ready.</span></div>
+    </div>
+  </section>
+
+  <section class="results" id="results">
+    <div class="kpis">
+      <div class="kpi"><div class="n">210</div><div class="l">Posts scanned</div></div>
+      <div class="kpi"><div class="n">12</div><div class="l">Hashtags tracked</div></div>
+      <div class="kpi"><div class="n">20</div><div class="l">Shortlisted for review</div></div>
+      <div class="kpi"><div class="n" id="kpiBatch">5</div><div class="l">Selected this batch</div></div>
+    </div>
+
+    <div class="cards" id="cards"></div>
+
+    <div class="synthesis">
+      <h2>What the batch surfaced</h2>
+      <!--__FINDINGS__-->
+</div>
+  </section>
+
+  <footer>Creative Research Desk. Configure a niche, run a batch, review the ranked shortlist. Scoring runs in the page. Nothing here calls out over the network.</footer>
+
+</div>
+
+<script>
+const DATA = /*__DATA__*/[];
+
+const chipsEl = document.getElementById('chips');
+const TAGS = /*__TAGS__*/[];
+function renderChips(){
+  chipsEl.innerHTML = TAGS.map((t,i) =>
+    `<span class="chip">${t}<button type="button" data-i="${i}" title="Remove tag">×</button></span>`
+  ).join('') + `<button class="chip-add" type="button" id="addChip">+ add tag</button>`;
+  chipsEl.querySelectorAll('.chip button').forEach(b=>{
+    b.addEventListener('click', ()=>{ TAGS.splice(Number(b.dataset.i),1); renderChips(); });
+  });
+  document.getElementById('addChip').addEventListener('click', ()=>{
+    const t = prompt('Tag to track (include the #):', '#newtag');
+    if (t && t.trim()) { TAGS.push(t.trim()); renderChips(); }
+  });
+}
+renderChips();
+
+const batchSizeEl = document.getElementById('batchSize');
+const batchSizeVal = document.getElementById('batchSizeVal');
+batchSizeEl.addEventListener('input', ()=> batchSizeVal.textContent = batchSizeEl.value);
+
+const weightEl = document.getElementById('weight');
+const weightVal = document.getElementById('weightVal');
+function describeWeight(w){
+  if (w == 50) return 'Balanced (50 / 50)';
+  if (w > 50) return `Reach-led (${w} / ${100-w})`;
+  return `Relevance-led (${100-w} / ${w})`;
+}
+weightEl.addEventListener('input', ()=> weightVal.textContent = describeWeight(Number(weightEl.value)));
+
+const cadenceEl = document.getElementById('cadence');
+const runDayEl = document.getElementById('runDay');
+const nextRunEl = document.getElementById('nextRun');
+const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+function computeNextRun(){
+  const targetDay = DAYS.indexOf(runDayEl.value);
+  const now = new Date();
+  const d = new Date(now);
+  let diff = (targetDay - now.getDay() + 7) % 7;
+  if (diff === 0) diff = 7;
+  d.setDate(now.getDate() + diff);
+  d.setHours(9,0,0,0);
+  const cadenceDays = Number(cadenceEl.value);
+  const cadenceLabel = cadenceDays === 7 ? 'weekly' : cadenceDays === 14 ? 'biweekly' : 'monthly';
+  nextRunEl.textContent = `${d.toLocaleDateString(undefined,{weekday:'long',month:'short',day:'numeric'})}, 9:00 AM (${cadenceLabel})`;
+}
+cadenceEl.addEventListener('change', computeNextRun);
+runDayEl.addEventListener('change', computeNextRun);
+computeNextRun();
+
+const runBtn = document.getElementById('runBtn');
+const logEl = document.getElementById('log');
+const resultsEl = document.getElementById('results');
+const cardsEl = document.getElementById('cards');
+const kpiBatch = document.getElementById('kpiBatch');
+const runHint = document.getElementById('runHint');
+
+function scoreRow(row, weightPct){
+  const w = weightPct / 100;
+  const relNorm = Math.min(row.relevance / 6, 1) * 100;
+  return row.viral * w + relNorm * (1 - w);
+}
+
+function render(){
+  const w = Number(weightEl.value);
+  const n = Number(batchSizeEl.value);
+  const ranked = DATA.map(r => ({...r, live: scoreRow(r, w)}))
+    .sort((a,b) => b.live - a.live);
+  const picked = new Set(ranked.slice(0, n).map(r => r.creator + r.url));
+  kpiBatch.textContent = n;
+
+  cardsEl.innerHTML = ranked.map(r => {
+    const isPicked = picked.has(r.creator + r.url);
+    return `
+    <div class="vcard ${isPicked ? 'picked' : ''}">
+      <div class="score">${r.live.toFixed(1)}</div>
+      <div class="vc-main">
+        <div class="head">
+          <a class="handle" href="${r.url}" target="_blank" rel="noopener">@${r.creator}</a>
+          ${isPicked ? '<span class="badge picked">In this batch</span>' : ''}
+          ${r.subtitles ? '' : '<span class="badge">No speech · visual-led</span>'}
+        </div>
+        <div class="cap">${r.caption}</div>
+        <div class="why">${r.whyShortlisted}</div>
+      </div>
+      <div class="stats">
+        <span><b>${r.views.toLocaleString()}</b> views</span>
+        <span>${r.viewFollowerRatio}x follower ratio</span>
+        <span>${r.engagementRate}% engagement</span>
+        <span>reach ${r.viral} · relevance ${r.relevance}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+let ran = false;
+runBtn.addEventListener('click', () => {
+  if (runBtn.disabled) return;
+  runBtn.disabled = true;
+  runHint.textContent = 'Running…';
+  logEl.classList.add('show');
+  logEl.querySelectorAll('.ln').forEach(l => l.classList.remove('on'));
+  resultsEl.classList.remove('show');
+
+  logEl.querySelectorAll('.ln').forEach(l => {
+    setTimeout(() => l.classList.add('on'), Number(l.dataset.t));
+  });
+
+  setTimeout(() => {
+    render();
+    resultsEl.classList.add('show');
+    runBtn.disabled = false;
+    runBtn.textContent = 'Run again';
+    runHint.textContent = ran ? 'Replayed the same batch at the current weighting.' : 'Batch ready below.';
+    ran = true;
+    resultsEl.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 4000);
+});
+
+weightEl.addEventListener('change', () => { if (ran) render(); });
+batchSizeEl.addEventListener('change', () => { if (ran) render(); });
+</script>
+</body>
+</html>
