@@ -7,6 +7,7 @@ you want, ignore the rest.
 |---|---|
 | [`prompt-coach/`](prompt-coach/) | Checks your request against the eight pieces of a complete prompt, then offers to fill the gaps before answering |
 | [`creative-research-batch/`](creative-research-batch/) | Runs a recurring TikTok creative research batch for one niche: Apify scrape, two-score ranking, Apify watches the top five, then a formatted brief and four-tab workbook in Drive plus a local review desk |
+| [`architect/`](architect/) | Turns a build idea into an implementation-ready architecture packet, hands bounded work to Builder agents, and reviews their results against the agreed contracts |
 
 ## Install
 
@@ -21,13 +22,13 @@ git clone https://github.com/Rlegaspi562/agent-skills
 macOS or Linux:
 
 ```bash
-mkdir -p ~/.claude/skills && cp -R agent-skills/prompt-coach agent-skills/creative-research-batch ~/.claude/skills/
+mkdir -p ~/.claude/skills && cp -R agent-skills/prompt-coach agent-skills/creative-research-batch agent-skills/architect ~/.claude/skills/
 ```
 
 Windows PowerShell:
 
 ```powershell
-New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null; Copy-Item -Recurse -Force .\agent-skills\prompt-coach, .\agent-skills\creative-research-batch "$HOME\.claude\skills\"
+New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null; Copy-Item -Recurse -Force .\agent-skills\prompt-coach, .\agent-skills\creative-research-batch, .\agent-skills\architect "$HOME\.claude\skills\"
 ```
 
 ### Codex
@@ -83,6 +84,25 @@ later. There is no perfect prompt, but there is a formula, and knowing the
 pieces means you stop being the bottleneck.
 
 MIT licensed. Built by [Rumil Legaspi](https://github.com/Rlegaspi562).
+
+## architect
+
+Say `/architect` before a software or product idea when the important
+decisions should be settled before implementation begins.
+
+The skill inspects the current project, distinguishes confirmed facts from
+assumptions, recommends an architecture, defines contracts and acceptance
+checks, and splits the build into bounded tasks. Each task can be handed to a
+Builder agent with a clear scope, verification method, and stop condition.
+Builder results come back to the Architect for evidence-based review.
+
+Use it when a project crosses components, changes data or public interfaces,
+introduces meaningful risk, or will be implemented by multiple agents. It
+deliberately stays lightweight for small edits.
+
+Setup and examples are in [`architect/README.md`](architect/README.md). A
+paste-ready School post is in
+[`architect/COMMUNITY-POST.md`](architect/COMMUNITY-POST.md).
 
 ## creative-research-batch
 
