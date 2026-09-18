@@ -6,6 +6,7 @@ you want, ignore the rest.
 | Skill | What it does |
 |---|---|
 | [`prompt-coach/`](prompt-coach/) | Checks your request against the eight pieces of a complete prompt, then offers to fill the gaps before answering |
+| [`morning-brief-builder/`](morning-brief-builder/) | Interviews you about priorities, follow-ups, meetings, and sources, then helps your agent build and refine a personalized morning brief |
 | [`creative-research-batch/`](creative-research-batch/) | Runs a recurring TikTok creative research batch for one niche: Apify scrape, two-score ranking, Apify watches the top five, then a formatted brief and four-tab workbook in Drive plus a local review desk |
 | [`architect/`](architect/) | Turns a build idea into an implementation-ready architecture packet, hands bounded work to Builder agents, and reviews their results against the agreed contracts |
 
@@ -22,13 +23,13 @@ git clone https://github.com/Rlegaspi562/agent-skills
 macOS or Linux:
 
 ```bash
-mkdir -p ~/.claude/skills && cp -R agent-skills/prompt-coach agent-skills/creative-research-batch agent-skills/architect ~/.claude/skills/
+mkdir -p ~/.claude/skills && cp -R agent-skills/prompt-coach agent-skills/morning-brief-builder agent-skills/creative-research-batch agent-skills/architect ~/.claude/skills/
 ```
 
 Windows PowerShell:
 
 ```powershell
-New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null; Copy-Item -Recurse -Force .\agent-skills\prompt-coach, .\agent-skills\creative-research-batch, .\agent-skills\architect "$HOME\.claude\skills\"
+New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null; Copy-Item -Recurse -Force .\agent-skills\prompt-coach, .\agent-skills\morning-brief-builder, .\agent-skills\creative-research-batch, .\agent-skills\architect "$HOME\.claude\skills\"
 ```
 
 ### Codex
@@ -71,6 +72,17 @@ Constraints, Example, Role (level 2), and the clarifying-question safety net
 version is in
 [`prompt-coach/prompt-template.md`](prompt-coach/prompt-template.md), and you
 can use that without installing anything.
+
+## morning-brief-builder
+
+Say `/morning-brief-builder` to turn the way you work into a reusable morning
+brief. The skill interviews you a few questions at a time, tests vague rules
+against real examples, scopes the sources your agent can access, and produces
+a first brief with actions, reasons, source references, and coverage gaps.
+
+It works with installable-skill agents and as plain pasted instructions. Live
+connectors and scheduling are optional. Setup, a paste-ready version, and a
+fictional example are in [`morning-brief-builder/`](morning-brief-builder/).
 
 ## Why this exists
 
