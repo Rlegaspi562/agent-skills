@@ -9,6 +9,7 @@ you want, ignore the rest.
 | [`morning-brief-builder/`](morning-brief-builder/) | Interviews you about priorities, follow-ups, meetings, and sources, then helps your agent build and refine a personalized morning brief |
 | [`creative-research-batch/`](creative-research-batch/) | Runs a recurring TikTok creative research batch for one niche: Apify scrape, two-score ranking, Apify watches the top five, then a formatted brief and four-tab workbook in Drive plus a local review desk |
 | [`architect/`](architect/) | Turns a build idea into an implementation-ready architecture packet, hands bounded work to Builder agents, and reviews their results against the agreed contracts |
+| [`viral-analyze/`](viral-analyze/) | Reverse-engineers pasted YouTube Shorts, TikTok, and Instagram Reels URLs into hook, topic, format, and remix cards, with a pattern synthesis on batches |
 
 ## Install
 
@@ -23,13 +24,13 @@ git clone https://github.com/Rlegaspi562/agent-skills
 macOS or Linux:
 
 ```bash
-mkdir -p ~/.claude/skills && cp -R agent-skills/prompt-coach agent-skills/morning-brief-builder agent-skills/creative-research-batch agent-skills/architect ~/.claude/skills/
+mkdir -p ~/.claude/skills && cp -R agent-skills/prompt-coach agent-skills/morning-brief-builder agent-skills/creative-research-batch agent-skills/architect agent-skills/viral-analyze ~/.claude/skills/
 ```
 
 Windows PowerShell:
 
 ```powershell
-New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null; Copy-Item -Recurse -Force .\agent-skills\prompt-coach, .\agent-skills\morning-brief-builder, .\agent-skills\creative-research-batch, .\agent-skills\architect "$HOME\.claude\skills\"
+New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null; Copy-Item -Recurse -Force .\agent-skills\prompt-coach, .\agent-skills\morning-brief-builder, .\agent-skills\creative-research-batch, .\agent-skills\architect, .\agent-skills\viral-analyze "$HOME\.claude\skills\"
 ```
 
 ### Codex
@@ -130,3 +131,21 @@ About a dollar in Apify per batch.
 Ships configured for DTC skincare on TikTok Shop; the niche is one block at
 the top of the skill. Setup for Cowork, Claude Code, and other agents is in
 [`creative-research-batch/README.md`](creative-research-batch/README.md).
+
+To analyze specific Shorts, TikToks, or Reels you already have, use
+[`viral-analyze/`](viral-analyze/).
+
+## viral-analyze
+
+Say `/viral-analyze` and paste one or more YouTube Shorts, TikTok, or
+Instagram Reels links.
+
+The skill watches what it can (a host watch skill, yt-dlp, or an Apify
+watch actor), reads whatever stats exist, and returns a structured card
+per video: hook, topic, format, beat structure, why it works, and remix
+angles. Two or more links get a synthesis pass: recurring patterns and
+three to five next-video ideas. Default batch cap is 15.
+
+It is the URL-in analysis skill. For hashtag scraping into Drive, use
+[`creative-research-batch/`](creative-research-batch/). Setup and the
+tool matrix are in [`viral-analyze/README.md`](viral-analyze/README.md).
