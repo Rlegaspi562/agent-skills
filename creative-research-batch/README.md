@@ -203,6 +203,11 @@ filter is disabled upstream, so the skill filters after the scrape.
 Fewer hashtags or a lower page size brings it down, at the cost of a thinner
 shortlist.
 
+## Related
+
+This skill finds videos by hashtag scrape. To reverse-engineer specific
+URLs you already have, use [`viral-analyze/`](../viral-analyze/).
+
 ## Privacy
 
 Nothing in this folder contains credentials. `scripts/drive_upload.py` writes
