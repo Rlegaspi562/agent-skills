@@ -6,8 +6,8 @@ Last updated: 2026-09-19
 
 | Shortcode | Platform | Creator | Focus | Card |
 |---|---|---|---|---|
-| DcY72S4B1EG | Instagram Reels | @zioncruzzzzzz | Dual-font hook, text-behind-talent, CapCut captions, flash | [card](sources/DcY72S4B1EG/card.md) |
-| DcgcNgDh-dX | Instagram Reels | @zioncruzzzzzz | Script accent write-on, flash beats, UGC story captions | [card](sources/DcgcNgDh-dX/card.md) |
+| DcY72S4B1EG | Instagram Reels | @zioncruzz | Dual-font hook, text-behind-talent, CapCut captions, flash | [card](sources/DcY72S4B1EG/card.md) |
+| DcgcNgDh-dX | Instagram Reels | @zioncruzz | Script accent write-on, flash beats, UGC story captions | [card](sources/DcgcNgDh-dX/card.md) |
 
 ## Presets
 
