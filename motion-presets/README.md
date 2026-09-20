@@ -46,5 +46,6 @@ Two @zioncruzz Instagram reels seeded the first presets:
 |---|---|
 | DcY72S4B1EG | https://www.instagram.com/p/DcY72S4B1EG/ |
 | DcgcNgDh-dX | https://www.instagram.com/p/DcgcNgDh-dX/ |
+| DfcNqN9TPp8 | https://youtube.com/shorts/DfcNqN9TPp8 |
 
 See `library/INDEX.md` for preset IDs.
