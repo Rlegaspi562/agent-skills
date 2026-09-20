@@ -1,7 +1,7 @@
 # Source watch notes — DcgcNgDh-dX
 
 URL: https://www.instagram.com/p/DcgcNgDh-dX/
-Creator: @zioncruzzzzzz
+Creator: @zioncruzz
 Duration: ~74s
 Topic: First brand deal / barely any followers / UGC path
 

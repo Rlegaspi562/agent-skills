@@ -1,7 +1,7 @@
 # Source watch notes — DcY72S4B1EG
 
 URL: https://www.instagram.com/p/DcY72S4B1EG/
-Creator: @zioncruzzzzzz
+Creator: @zioncruzz
 Duration: ~54s
 Topic: "I thought I needed 100K followers" / treat content like a business
 

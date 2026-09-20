@@ -1,7 +1,7 @@
 # Source card — DcY72S4B1EG
 
 - **URL:** https://www.instagram.com/p/DcY72S4B1EG/
-- **Creator:** @zioncruzzzzzz
+- **Creator:** @zioncruzz
 - **Platform:** Instagram Reels
 - **Duration:** ~54s
 - **Coverage:** watched (host video review) + frames

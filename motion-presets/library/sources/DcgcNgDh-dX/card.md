@@ -1,7 +1,7 @@
 # Source card — DcgcNgDh-dX
 
 - **URL:** https://www.instagram.com/p/DcgcNgDh-dX/
-- **Creator:** @zioncruzzzzzz
+- **Creator:** @zioncruzz
 - **Platform:** Instagram Reels
 - **Duration:** ~74s
 - **Coverage:** watched (host video review) + frames

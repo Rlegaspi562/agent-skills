@@ -40,7 +40,7 @@ skills directory, or point the agent at this GitHub path.
 
 ## Seed library (2026-09-19)
 
-Two @zioncruzzzzzz Instagram reels seeded the first presets:
+Two @zioncruzz Instagram reels seeded the first presets:
 
 | Shortcode | URL |
 |---|---|
