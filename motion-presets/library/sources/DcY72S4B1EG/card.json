@@ -1,0 +1,91 @@
+{
+  "type": "motion_preset_source",
+  "url": "https://www.instagram.com/p/DcY72S4B1EG/",
+  "platform": "instagram_reels",
+  "shortcode": "DcY72S4B1EG",
+  "creator": "@zioncruzz",
+  "duration_sec": 54,
+  "title_or_caption": "I thought I needed 100K followers to make real money from content…",
+  "coverage": "watched",
+  "typography": [
+    {
+      "id": "hook-heavy-sans",
+      "role": "hook",
+      "sample_text": "I DON'T HAVE 10",
+      "case": "all_caps",
+      "font_guess": "heavy extended sans (Monument Extended / Montserrat Black–like)",
+      "weight": "black",
+      "color": "#FFFFFF",
+      "stroke_or_shadow": "soft feathered black drop shadow",
+      "size_vs_frame": "large",
+      "position": "center"
+    },
+    {
+      "id": "hook-script-accent",
+      "role": "accent",
+      "sample_text": "First",
+      "case": "mixed",
+      "font_guess": "elegant script (Great Vibes / Allura–like)",
+      "weight": "regular",
+      "color": "#FFFFFF",
+      "stroke_or_shadow": "soft shadow",
+      "size_vs_frame": "larger than adjacent sans",
+      "position": "center"
+    },
+    {
+      "id": "body-captions",
+      "role": "body",
+      "sample_text": "Here's what I learned",
+      "case": "sentence",
+      "font_guess": "Proxima Nova / Montserrat Medium–like",
+      "weight": "medium",
+      "color": "#FFFFFF",
+      "stroke_or_shadow": "sharp dark shadow or thin stroke",
+      "size_vs_frame": "medium",
+      "position": "center"
+    }
+  ],
+  "motion": [
+    {
+      "id": "scale-pop-bounce",
+      "applies_to": "hook-heavy-sans",
+      "description": "Scale ~50–80% → ~105–110% → 100% over ~8–12 frames",
+      "easing": "overshoot / bounce"
+    },
+    {
+      "id": "word-chunk-captions",
+      "applies_to": "body-captions",
+      "description": "Word or 2–3 word chunks appear to VO; clear on pauses",
+      "easing": "linear / micro scale"
+    }
+  ],
+  "masking": [
+    {
+      "id": "text-behind-subject",
+      "description": "Kinetic text rotoscoped/masked behind legs and laptop",
+      "difficulty": "hard"
+    }
+  ],
+  "overlays": [
+    {"id": "ig-profile-card", "description": "Rounded IG profile UI card with drop shadow, scale pop"},
+    {"id": "ig-dm-scroll", "description": "DM screen recording scrolling up with motion blur"}
+  ],
+  "transitions": [
+    {"id": "white-flash-shutter", "description": "Full-frame white opacity pulse + shutter SFX (~0:06)"}
+  ],
+  "sfx": [
+    {"id": "text-pop", "cue": "each hook word", "character": "short pitched pop"},
+    {"id": "shutter", "cue": "flash peak", "character": "camera shutter"},
+    {"id": "whoosh", "cue": "montage / UI scroll", "character": "low whoosh"}
+  ],
+  "music": "lo-fi / chill hip-hop bed under VO",
+  "preset_ids": [
+    "kinetic-hook-dual-font",
+    "capcut-center-captions",
+    "text-behind-talent",
+    "white-flash-shutter",
+    "ui-card-pop",
+    "sfx-text-pop-whoosh"
+  ],
+  "davinci_notes": "Text+ stacks for hook; Magic Mask FG over text; white generator flash; Fairlight pops/shutter; center captions for body."
+}

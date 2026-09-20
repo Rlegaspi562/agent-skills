@@ -1,0 +1,78 @@
+{
+  "type": "motion_preset_source",
+  "url": "https://youtube.com/shorts/DfcNqN9TPp8",
+  "platform": "youtube_shorts",
+  "shortcode": "DfcNqN9TPp8",
+  "creator": "Arjay McCandless",
+  "duration_sec": 81,
+  "title_or_caption": "GitHub is dying.",
+  "stats": {"views": 171368},
+  "coverage": "frames",
+  "format_tags": ["split_screen_explainer", "tech_diagram", "black_box_captions", "talking_head"],
+  "typography": [
+    {
+      "id": "black-box-caption",
+      "role": "body",
+      "sample_text": "GitHub is dying.",
+      "case": "sentence",
+      "font_guess": "clean sans (Inter / Helvetica / Montserrat Medium–like)",
+      "weight": "medium",
+      "color": "#FFFFFF",
+      "stroke_or_shadow": "none — solid black rectangle behind text",
+      "size_vs_frame": "medium",
+      "position": "center / on split line"
+    },
+    {
+      "id": "diagram-labels",
+      "role": "overlay",
+      "sample_text": "CENTRAL US DATA CENTER / PEAK / METRIC OK",
+      "case": "all_caps",
+      "font_guess": "tight tech sans, caps",
+      "weight": "bold",
+      "color": "#000000 with red/green accents",
+      "stroke_or_shadow": "none",
+      "size_vs_frame": "small–medium on top panel",
+      "position": "inside top graphic panel"
+    }
+  ],
+  "motion": [
+    {
+      "id": "caption-phrase-cuts",
+      "applies_to": "black-box-caption",
+      "description": "Hard cut / instant appear of 2–5 word chunks synced to VO; box resizes to text",
+      "easing": "hold / cut"
+    },
+    {
+      "id": "diagram-state-cuts",
+      "applies_to": "diagram-labels",
+      "description": "Hard cuts between diagram states; optional draw-on for chart lines",
+      "easing": "cut"
+    }
+  ],
+  "masking": [
+    {
+      "id": "horizontal-split-matte",
+      "description": "Hard horizontal crop: top panel graphics, bottom live talking-head",
+      "difficulty": "easy"
+    }
+  ],
+  "overlays": [
+    {"id": "github-chart-panel", "description": "Outage blog header + dual fetch throughput charts"},
+    {"id": "peak-graph-icon", "description": "Requests/s graph with red PEAK callout + data-center icon"},
+    {"id": "hpa-sidecar-diagram", "description": "HPA / app container / Istio sidecar boxes with green/red metric bars"},
+    {"id": "vscode-token-icons", "description": "VS Code logo + TOKEN SERVICE badge on beige panel"}
+  ],
+  "transitions": [
+    {"id": "hard-cut-diagrams", "description": "Hard cuts between top-panel states; no fancy wipes"}
+  ],
+  "sfx": [
+    {"id": "light-ui-ticks", "cue": "optional on diagram/caption changes", "character": "subtle click/tick (verify on full watch)"}
+  ],
+  "music": "under bed TBD on full listen — likely light tech / lo-fi",
+  "preset_ids": [
+    "split-screen-explainer",
+    "black-box-captions",
+    "tech-diagram-panel"
+  ],
+  "davinci_notes": "Bottom crop of talking head + top Fusion/title stills; Text+ with background enabled for black-box captions; hard cuts on diagram timeline."
+}

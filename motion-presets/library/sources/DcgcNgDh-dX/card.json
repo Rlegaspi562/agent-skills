@@ -1,0 +1,86 @@
+{
+  "type": "motion_preset_source",
+  "url": "https://www.instagram.com/p/DcgcNgDh-dX/",
+  "platform": "instagram_reels",
+  "shortcode": "DcgcNgDh-dX",
+  "creator": "@zioncruzz",
+  "duration_sec": 74,
+  "title_or_caption": "Everybody has a first brand deal. Mine paid $0…",
+  "coverage": "watched",
+  "typography": [
+    {
+      "id": "hook-heavy-sans",
+      "role": "hook",
+      "sample_text": "I DON'T HAVE 10,000",
+      "case": "all_caps",
+      "font_guess": "heavy sans (Montserrat Black / Impact–like)",
+      "weight": "black",
+      "color": "#FFFFFF",
+      "stroke_or_shadow": "soft black drop shadow",
+      "size_vs_frame": "large",
+      "position": "center"
+    },
+    {
+      "id": "hook-script-followers",
+      "role": "accent",
+      "sample_text": "Followers",
+      "case": "mixed",
+      "font_guess": "cursive script",
+      "weight": "regular",
+      "color": "#FFFFFF",
+      "stroke_or_shadow": "soft shadow",
+      "size_vs_frame": "large",
+      "position": "center"
+    },
+    {
+      "id": "body-captions",
+      "role": "body",
+      "sample_text": "create UGC",
+      "case": "sentence",
+      "font_guess": "clean sans medium",
+      "weight": "medium",
+      "color": "#FFFFFF",
+      "stroke_or_shadow": "subtle dark shadow",
+      "size_vs_frame": "medium",
+      "position": "center"
+    }
+  ],
+  "motion": [
+    {
+      "id": "scale-pop-bounce",
+      "applies_to": "hook-heavy-sans",
+      "description": "Pop bounce ~80% → 105% → 100%",
+      "easing": "overshoot"
+    },
+    {
+      "id": "script-writeon",
+      "applies_to": "hook-script-followers",
+      "description": "Left-to-right write-on / wipe",
+      "easing": "linear"
+    }
+  ],
+  "masking": [
+    {
+      "id": "text-behind-subject",
+      "description": "Hook lines composite behind subject geometry",
+      "difficulty": "hard"
+    }
+  ],
+  "overlays": [],
+  "transitions": [
+    {"id": "white-flash-shutter", "description": "Flash between hook stacks"}
+  ],
+  "sfx": [
+    {"id": "whoosh-pop", "cue": "hook words", "character": "whoosh + pop"},
+    {"id": "shutter", "cue": "flash", "character": "shutter"}
+  ],
+  "music": "lo-fi R&B / hip-hop under dialogue after hook",
+  "preset_ids": [
+    "kinetic-hook-dual-font",
+    "capcut-center-captions",
+    "text-behind-talent",
+    "white-flash-shutter",
+    "sfx-text-pop-whoosh"
+  ],
+  "davinci_notes": "Emphasize Text+ write-on for script noun; same mask stack as sibling reel."
+}
