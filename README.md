@@ -11,6 +11,8 @@ you want, ignore the rest.
 | [`architect/`](architect/) | Turns a build idea into an implementation-ready architecture packet, hands bounded work to Builder agents, and reviews their results against the agreed contracts |
 | [`viral-analyze/`](viral-analyze/) | Reverse-engineers pasted YouTube Shorts, TikTok, and Instagram Reels URLs into hook, topic, format, and remix cards, with a pattern synthesis on batches |
 
+Also in this repo: [`content-library/`](content-library/) is an **internal lookback shelf**, not an installable Claude/Codex skill.
+
 ## Install
 
 Clone the repository:
