@@ -13,4 +13,5 @@ Internal lookback shelf for content-creation workflows, formats, and recipes we 
 
 | Date | Card | Topic | Status |
 |---|---|---|---|
+| 2026-09-30 | [Opus 5.5 Motion Lab](sources/2026-09-30-flxrnc-opus-motion-lab.md) | Directed code-rendered motion: brief template, motion numbers, render loop, sound (skill: [`motion-lab/`](../motion-lab/)) | shelved |
 | 2026-09-29 | [Opus 5.5 $0 launch videos](sources/2026-09-29-twoclipping-opus-launch-videos.md) | Code-rendered product launch films (Claude Code + Playwright + ffmpeg) | shelved |
