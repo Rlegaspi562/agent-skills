@@ -10,6 +10,7 @@ you want, ignore the rest.
 | [`creative-research-batch/`](creative-research-batch/) | Runs a recurring TikTok creative research batch for one niche: Apify scrape, two-score ranking, Apify watches the top five, then a formatted brief and four-tab workbook in Drive plus a local review desk |
 | [`architect/`](architect/) | Turns a build idea into an implementation-ready architecture packet, hands bounded work to Builder agents, and reviews their results against the agreed contracts |
 | [`viral-analyze/`](viral-analyze/) | Reverse-engineers pasted YouTube Shorts, TikTok, and Instagram Reels URLs into hook, topic, format, and remix cards, with a pattern synthesis on batches |
+| [`motion-lab/`](motion-lab/) | Directs Claude to write motion graphics as code (HTML, Remotion, HyperFrames, Three.js) and render them frame-exact to MP4 for title cards, lower thirds, 9:16 inserts, product shots and explainers. From Florence (@flxrnc) |
 
 Also in this repo: [`content-library/`](content-library/) is an **internal lookback shelf**, not an installable Claude/Codex skill.
 
@@ -26,13 +27,13 @@ git clone https://github.com/Rlegaspi562/agent-skills
 macOS or Linux:
 
 ```bash
-mkdir -p ~/.claude/skills && cp -R agent-skills/prompt-coach agent-skills/morning-brief-builder agent-skills/creative-research-batch agent-skills/architect agent-skills/viral-analyze ~/.claude/skills/
+mkdir -p ~/.claude/skills && cp -R agent-skills/prompt-coach agent-skills/morning-brief-builder agent-skills/creative-research-batch agent-skills/architect agent-skills/viral-analyze agent-skills/motion-lab ~/.claude/skills/
 ```
 
 Windows PowerShell:
 
 ```powershell
-New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null; Copy-Item -Recurse -Force .\agent-skills\prompt-coach, .\agent-skills\morning-brief-builder, .\agent-skills\creative-research-batch, .\agent-skills\architect, .\agent-skills\viral-analyze "$HOME\.claude\skills\"
+New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null; Copy-Item -Recurse -Force .\agent-skills\prompt-coach, .\agent-skills\morning-brief-builder, .\agent-skills\creative-research-batch, .\agent-skills\architect, .\agent-skills\viral-analyze, .\agent-skills\motion-lab "$HOME\.claude\skills\"
 ```
 
 ### Codex
