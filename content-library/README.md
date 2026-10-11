@@ -13,4 +13,5 @@ Internal lookback shelf for content-creation workflows, formats, and recipes we 
 
 | Date | Card | Topic | Status |
 |---|---|---|---|
+| 2026-10-10 | ["Claude did" self-proving AI edit reel](sources/2026-10-10-justyn-ai-claude-edited-reel.md) | Short-form format: claim the AI made the video, the edit proves it, keyword CTA | shelved |
 | 2026-09-29 | [Opus 5.5 $0 launch videos](sources/2026-09-29-twoclipping-opus-launch-videos.md) | Code-rendered product launch films (Claude Code + Playwright + ffmpeg) | shelved |
